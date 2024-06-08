@@ -1316,16 +1316,25 @@ fun ReactionChoicePopup(
         offset = IntOffset(0, iconSizePx),
         onDismissRequest = { onDismiss() },
     ) {
-        FlowRow(horizontalArrangement = Arrangement.Center) {
-            account.reactionChoices.forEach { reactionType ->
-                ActionableReactionButton(
-                    baseNote,
-                    reactionType,
-                    accountViewModel,
-                    onDismiss,
-                    onChangeAmount,
-                    toRemove,
-                )
+        Box(
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.surface)
+                    .padding(5.dp),
+            contentAlignment = Center,
+        ) {
+            FlowRow(horizontalArrangement = Arrangement.Center) {
+                account.reactionChoices.forEach { reactionType ->
+                    ActionableReactionButton(
+                        baseNote,
+                        reactionType,
+                        accountViewModel,
+                        onDismiss,
+                        onChangeAmount,
+                        toRemove,
+                    )
+                }
             }
         }
     }
